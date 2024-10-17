@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Porsorpor Website</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom, #1a1a1a, #000000);
+            color: #c97c17;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.025);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #c97c17;
+            max-width: 700px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        .section {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p, ul {
+            font-size: 19px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        a:hover {
+            color: #c97c17;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: #585858;
+        }
+
+        a.clicked {
+            animation: fadeIn 1.5s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: transparent;
+            border: 8px solid #c97c17;
+            transform: scale(0);
+            animation: expandFade 0.5s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes expandFade {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        @media screen and (max-width: 1080px) {
+            h1 {
+                font-size: 34px;
+            }
+
+            p, ul {
+                font-size: 18px;
+            }
+
+            li {
+                margin: 9px 0;
+            }
+
+            .content {
+                max-width: 90%;
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            p, ul {
+                font-size: 16px;
+            }
+
+            li {
+                margin: 8px 0;
+            }
+
+            .content {
+                max-width: 95%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Porsorpor Website</h1>
+    <div class="content">
+        <div class="section">
+            <h1>Minecraft Username</h1>
+            <ul>
+                <li><a href="" onclick="fadeLink(this)">Peemiiee</a></li>
+            </ul>
+            
+            <h1>Social Medias</h1>
+            <ul>
+                <li><a href="https://www.tiktok.com/@porsorpor" onclick="fadeLink(this)">Tiktok</a></li>
+                <li><a href="https://discord.gg/HusmWqbv" onclick="fadeLink(this)">Discord</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousedown', function(e) {
+            if (e.button === 0) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            const circle = document.createElement('div');
+            circle.className = 'circle';
+            document.body.appendChild(circle);
+            const size = Math.random() * 50 + 50;
+            circle.style.width = size + 'px';
+            circle.style.height = size + 'px';
+            circle.style.left = event.pageX - size / 2 + 'px';
+            circle.style.top = event.pageY - size / 2 + 'px';
+            setTimeout(() => {
+                circle.remove();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
